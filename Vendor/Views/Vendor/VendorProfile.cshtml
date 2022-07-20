@@ -1,0 +1,88 @@
+﻿@model Grocery.Models.tbl_vendor
+
+@{
+    ViewBag.Title = "VendorProfile";
+    Layout = "~/Views/Shared/_Layout1.cshtml";
+}
+
+@*< !-- ===== ===== Main - Container ===== ===== -->*@
+
+@using (Html.BeginForm())
+{
+    <!-- ===== ===== Body Main-Background ===== ===== -->
+    
+    
+<div class="container">
+    <div class="row">
+        <div class="col-3">
+            <h2>Vendor Profile</h2>
+
+            <div style="margin-right:auto">
+                <img src="~/Image/@Html.DisplayFor(model => model.Photo)" style="width:35vh; height:auto;" class="img-responsive img-circle" />
+            </div>
+        </div>
+        <div class="col-2"></div>
+        <div class="col-7">
+            <div>
+                <h4>Details</h4>
+                <hr />
+                <dl class="dl-horizontal">
+                    <dt>
+                        @Html.DisplayNameFor(model => model.BIN)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.BIN)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Name)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Name)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Email)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Email)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Mobile)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Mobile)
+                    </dd>
+
+                    <dt>
+                        @Html.DisplayNameFor(model => model.Address)
+                    </dt>
+
+                    <dd>
+                        @Html.DisplayFor(model => model.Address)
+                    </dd>
+                </dl>
+            </div>
+        </div>
+
+
+    </div>
+    <div class="form-group">
+        <a class="btn btn-outline-sucees my-2 my-sm-0 mr-2" href="@Url.Action("EditProfile", "Vendor",new{Model.BIN, Model.Name,Model.Email,Model.Address,Model.Mobile,Model.Photo,Model.ImageFile})"><i class="fa-solid fa-user-pen pr-2"></i>Edit Profile</a>
+    </div>
+
+    <div class="form-group">
+        <a class="btn btn-danger my-2 my-sm-0 mr-2" href="@Url.Action("DeleteVendor", "Vendor", new {Model.BIN})"><i class="fa-solid fa-user-xmark pr-2"></i>Delete Profile</a>
+    </div>
+</div>
+ 
+    <p>
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+}
+
